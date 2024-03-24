@@ -19,5 +19,4 @@ if(isset($_POST['submit'])){
 		echo "<script>document.location = 'index.html'</script>";
 	}
 }
-
 // header("location: tambah.php");
