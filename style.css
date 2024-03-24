@@ -1,0 +1,154 @@
+h1 {
+  text-align: center;
+}
+
+#firstPage{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  flex-direction: column;
+}
+.menu {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+header img {
+  max-width: 500px;
+  height: auto;
+}
+.menu-item {
+  background-color: #fff;
+  /* border: 1px solid #ccc; */
+  padding: 150px; /* Adjusted padding for larger blocks */
+  margin: 0 20px; /* Adjusted margin for spacing */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 5px 10px #ccc;
+  border-radius: 5%;
+}
+.menu-item i {
+  font-size: 48px;
+  margin-bottom: 10px;
+}
+.menu-item p {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.menu-item:hover {
+  background-color: #ddd;
+  box-shadow: 5px 10px #000;
+}
+a {
+  color: #000;
+  text-decoration: none;
+}
+#secondPage{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  flex-direction: column;
+}
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  /* margin: 0 auto; */
+}
+.side {
+  flex: 0 0 50%;
+  padding: 20px;
+  margin-right: 20px;
+}
+.input-group {
+  margin-bottom: 10px;
+}
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+input[type="text"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+input[type="date"] {
+  padding: 14px; /* Adjust padding as needed */
+  font-size: 16px; /* Adjust font size as needed */
+}
+.button{
+  text-align: center;
+  
+}
+.button-back,
+.button-submit {
+  padding: 10px 30px; 
+  font-size: 16px;
+  border-radius: 2%;
+  cursor: pointer;
+}
+
+.button-submit {
+  width: auto;
+  background-color: #fff;
+}
+.button-submit:hover {
+  background-color: cyan;
+  color: white;
+}
+
+.button-back {
+  width: auto;
+  background-color: #808080;
+}
+.button-back:hover {
+  background-color: red;
+  color: white;
+}
+#thirdPage{
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 75vh;
+  flex-direction: column;
+}
+.searchContainer {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+.searchContainer label {
+  margin-right: 10px;
+  font-size: 20px;
+}
+
+.searchContainer input[type="text"] {
+  width: 200px;
+}
+.tableContainer{
+  margin-top: 20px;
+}
+.buttonBackDaftar{
+  text-align: center;
+  margin-top: 20px;
+}
