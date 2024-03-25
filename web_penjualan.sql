@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 08:34 AM
+-- Generation Time: Mar 25, 2024 at 08:40 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -43,12 +43,7 @@ CREATE TABLE `penjualan` (
 --
 
 INSERT INTO `penjualan` (`idPenjualan`, `namaBarang`, `jumlahBarang`, `tanggalBeli`, `hargaBeli`, `tanggalJual`, `hargaJual`, `sisaStok`) VALUES
-(11, 'qwer', 1114, '2024-03-22', 100000, '2024-03-24', 110000, 0),
-(12, 'asdfgh', 1114, '2024-03-21', 100000, '2024-03-24', 110000, 0),
-(13, 'test', 454545, '2024-03-05', 100000000, '2024-03-26', 2000000000, 0),
-(14, 'qwer', 123, '2024-03-14', 100000, '2024-03-25', 8901234, 33),
-(15, 'qwer', 123, '2024-03-14', 100000, '2024-03-25', 8901234, 33),
-(16, 'qweqweqw', 1111, '2024-03-12', 1234567, '2024-03-26', 2147483647, 21);
+(1, 'test', 123, '2024-03-11', 100000000, '2024-03-25', 2000000000, 22);
 
 -- --------------------------------------------------------
 
@@ -93,7 +88,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `idPenjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idPenjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `user`
