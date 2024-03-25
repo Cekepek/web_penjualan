@@ -25,8 +25,8 @@ header img {
 .menu-item {
   background-color: #fff;
   /* border: 1px solid #ccc; */
-  padding: 150px; /* Adjusted padding for larger blocks */
-  margin: 0 20px; /* Adjusted margin for spacing */
+  padding: 150px;
+  margin: 0 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
   display: flex;
@@ -251,25 +251,16 @@ input[type="date"] {
 }
 .logout-btn {
   position: fixed;
-  top: 10px; /* Adjust as needed */
-  right: 10px; /* Adjust as needed */
+  top: 10px; 
+  right: 10px;
   padding: 5px 10px;
-  background-color: #f00; /* Red color, change as needed */
-  color: #fff; /* White color for text, change as needed */
+  background-color: #f00;
+  color: #fff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-/* Optional: Hover effect */
 .logout-btn:hover {
-  background-color: #d00; /* Darker red color on hover */
+  background-color: #d00;
 }
-/* .input-group input[type="text"],
-.input-group input[type="date"],
-.input-group input[type="number"],
-.stok input[type="number"]
-.button .centered-text input[type="text"] {
-    width: 100%; 
-    box-sizing: border-box;
-} */
