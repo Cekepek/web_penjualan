@@ -19,6 +19,9 @@ if (!isset($_SESSION['username'])){
     />
   </head>
   <body id="firstPage">
+    <a href="logout.php">
+      <button class="logout-btn">Logout</button>
+    </a>
     <header>
       <img src="161-removebgc.png" alt="">
     </header>

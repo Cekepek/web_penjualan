@@ -52,7 +52,9 @@
                 <label for="stok">Sisa Stok :</label>
                 <input type="number" id="stok" name="sisaStok" required/>
             </div>
-        <button type="button" onclick="goBack()" class="button-back">Kembali</button>
+        <a href="index.php">
+          <button type="button" onclick="goBack()" class="button-back">Kembali</button>
+        </a>
         <button type="submit" name="submit" class="button-submit">Tambahkan</button>
       </div>
     </form>

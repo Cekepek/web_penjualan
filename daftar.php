@@ -22,16 +22,24 @@ $penjualan = new penjualan();
     </header>
     <div class="tableContainer">
       <h1>Daftar Penjualan</h1>
-      <div class="searchContainer">
-        <label for="search">Cari:</label>
-        <input type="text" id="search" name="search">
-      </div>
+      <form>
+        <div class="searchContainer">
+          <label for="search">Tanggal Penjualan:</label>
+          <input type="date" id="search" name="search">
+          <input type="submit" value="Cari">
+        </div>
+      </form>
         <table border="1">
             <thead>
 				<tr><th>ID</th> <th>Nama Barang</th> <th>Jumlah Pembelian</th> <th>Tanggal Pembelian</th> <th>Harga Pembelian</th> <th>Tanggal Penjualan</th> <th>Harga Penjualan</th> <th>Sisa Stok</th></tr>
 			</thead>
         <?php
-          $res = $penjualan->get_penjualan();
+          $tanggal = "";
+          if(isset($_GET['search'])){
+            $tanggal = $_GET['search'];
+            echo "<p><i>Hasil pencarian untuk tanggal penjualan '".$tanggal."'</i></p>";
+          }
+          $res = $penjualan->get_penjualan($tanggal);
           while($row = $res->fetch_assoc()){
             echo"<tr>";
               echo "<td>".$row['idPenjualan']."</td>";
@@ -47,7 +55,9 @@ $penjualan = new penjualan();
         ?>
         </table>
       <div class="buttonBackDaftar">
-        <button type="button" onclick="goBack()" class="button-back">Kembali</button>
+        <a href="index.php">
+          <button type="button" class="button-back">Kembali</button>
+        </a>
       </div>
     </div>
 </body>

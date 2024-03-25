@@ -149,11 +149,27 @@ input[type="date"] {
 .searchContainer label {
   margin-right: 10px;
   font-size: 20px;
+  align-items: center;
 }
 
-.searchContainer input[type="text"] {
+.searchContainer input[type="date"] {
   width: 200px;
+  margin-right: 10px;
 }
+
+.searchContainer input[type="submit"] {
+  padding: 10px 30px; 
+  font-size: 16px;
+  border-radius: 2%;
+  cursor: pointer;
+  background-color: #808080;
+}
+
+.searchContainer input[type="submit"]:hover {
+  background-color: red;
+  color: white;
+}
+
 .tableContainer{
   margin-top: 20px;
 }
@@ -232,6 +248,22 @@ input[type="date"] {
 
 .button-login:hover {
   background-color: #0056b3;
+}
+.logout-btn {
+  position: fixed;
+  top: 10px; /* Adjust as needed */
+  right: 10px; /* Adjust as needed */
+  padding: 5px 10px;
+  background-color: #f00; /* Red color, change as needed */
+  color: #fff; /* White color for text, change as needed */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Optional: Hover effect */
+.logout-btn:hover {
+  background-color: #d00; /* Darker red color on hover */
 }
 /* .input-group input[type="text"],
 .input-group input[type="date"],
