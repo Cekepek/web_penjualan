@@ -10,12 +10,17 @@ if(isset($_POST['submit'])){
 	$arr_col['hargaBeli'] = $_POST['hargaBeli'];
 	$arr_col['tanggalJual'] = $_POST['tanggalJual'];
     $arr_col['hargaJual'] = $_POST['hargaJual'];
+	$arr_col['sisaStok'] = $_POST['sisaStok'];
 
-	echo($arr_col['namaBarang']);
+	echo($arr_col['sisaStok']);
     $objPenjualan = new penjualan();
 	$idPenjualan = $objPenjualan->add_penjualan($arr_col);
 	if($idPenjualan){
 		echo "<script type='text/javascript'>alert('Data Penjualan Berhasil Ditambahkan');</script>";
+		echo "<script>document.location = 'index.html'</script>";
+	}
+	else{
+		echo "<script type='text/javascript'>alert('Data Penjualan Gagal Ditambahkan');</script>";
 		echo "<script>document.location = 'index.html'</script>";
 	}
 }

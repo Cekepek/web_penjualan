@@ -13,9 +13,9 @@ class penjualan extends koneksi{
 			$kumpulan_col[]= $key;
 			$kumpulan_tanda_tanya[]="?";
 		}
-		$sql = "Insert INTO penjualan (namaBarang, jumlahBarang, tanggalBeli, hargaBeli, tanggalJual, hargaJual) VALUES (?,?,?,?,?,?)";
+		$sql = "Insert INTO penjualan (namaBarang, jumlahBarang, tanggalBeli, hargaBeli, tanggalJual, hargaJual, sisaStok) VALUES (?,?,?,?,?,?,?)";
 		$stmt = $this->mysqli->prepare($sql);
-		$stmt->bind_param("sisisi", $arr_col['namaBarang'],$arr_col['jumlahBarang'],$arr_col['tanggalBeli'],$arr_col['hargaBeli'],$arr_col['tanggalJual'],$arr_col['hargaJual']);
+		$stmt->bind_param("sisisii", $arr_col['namaBarang'],$arr_col['jumlahBarang'],$arr_col['tanggalBeli'],$arr_col['hargaBeli'],$arr_col['tanggalJual'],$arr_col['hargaJual'],$arr_col['sisaStok']);
 		$stmt->execute();
 		$this->mysqli->close();
 		return $stmt->insert_id;

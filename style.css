@@ -59,19 +59,19 @@ a {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 75vh;
+  height: 90vh;
   flex-direction: column;
 }
 .form-container {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
+  /* justify-content: space-between; */
+  /* width: 90%; */
   /* margin: 0 auto; */
 }
 .side {
   flex: 0 0 50%;
-  padding: 20px;
-  margin-right: 20px;
+  /* padding: 20px; */
+  margin-right: 40px;
 }
 .input-group {
   margin-bottom: 10px;
@@ -86,13 +86,22 @@ input[type="text"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+input[type="number"] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 input[type="date"] {
-  padding: 14px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
+  width: 100%;
+  padding: 8px; 
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 .button{
   text-align: center;
-  
+  /* padding-left: 20px; */
 }
 .button-back,
 .button-submit {
@@ -152,3 +161,25 @@ input[type="date"] {
   text-align: center;
   margin-top: 20px;
 }
+.stok {
+  display: flex;
+  /* text-align: center; */
+  margin-bottom: 10px;
+  justify-content: center;
+}
+.stok label{
+  /* margin-right: px; */
+  margin-bottom: 0;
+  width: 25%;
+  display: flex;
+  /* align-self: stretch; */
+  align-items: center;
+}
+/* .input-group input[type="text"],
+.input-group input[type="date"],
+.input-group input[type="number"],
+.stok input[type="number"]
+.button .centered-text input[type="text"] {
+    width: 100%; 
+    box-sizing: border-box;
+} */

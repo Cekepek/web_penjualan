@@ -29,13 +29,13 @@
           </div>
           <div class="input-group">
             <label for="input3">Harga Pembelian :</label>
-            <input type="text" id="input3" name="hargaBeli" />
+            <input type="number" id="input3" name="hargaBeli" />
           </div>
         </div>
         <div class="side">
           <div class="input-group">
             <label for="input4">Jumlah Barang :</label>
-            <input type="text" id="input4" name="jumlahBarang" />
+            <input type="number" id="input4" name="jumlahBarang" />
           </div>
           <div class="input-group">
             <label for="input5">Tanggal Penjualan Barang :</label>
@@ -43,11 +43,15 @@
           </div>
           <div class="input-group">
             <label for="input6">Harga Penjualan :</label>
-            <input type="text" id="input6" name="hargaJual" />
+            <input type="number" id="input6" name="hargaJual" />
           </div>
         </div>
       </div>
       <div class="button">
+      <div class="stok">
+                <label for="stok">Sisa Stok :</label>
+                <input type="number" id="stok" name="sisaStok" />
+            </div>
         <button type="button" onclick="goBack()" class="button-back">Kembali</button>
         <button type="submit" name="submit" class="button-submit">Tambahkan</button>
       </div>

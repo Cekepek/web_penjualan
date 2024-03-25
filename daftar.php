@@ -28,7 +28,7 @@ $penjualan = new penjualan();
       </div>
         <table border="1">
             <thead>
-				<tr><th>ID</th> <th>Nama Barang</th> <th>Jumlah Pembelian</th> <th>Tanggal Pembelian</th> <th>Harga Pembelian</th> <th>Tanggal Penjualan</th> <th>Harga Penjualan</th></tr>
+				<tr><th>ID</th> <th>Nama Barang</th> <th>Jumlah Pembelian</th> <th>Tanggal Pembelian</th> <th>Harga Pembelian</th> <th>Tanggal Penjualan</th> <th>Harga Penjualan</th> <th>Sisa Stok</th></tr>
 			</thead>
         <?php
           $res = $penjualan->get_penjualan();
@@ -41,6 +41,7 @@ $penjualan = new penjualan();
               echo "<td>". $row['hargaBeli']."</td>";
               echo "<td>". $row['tanggalJual']."</td>";
               echo "<td>". $row['hargaJual']."</td>";
+              echo "<td>". $row['sisaStok']."</td>";
             echo "</tr>";
           }
         ?>
