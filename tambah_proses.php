@@ -17,11 +17,11 @@ if(isset($_POST['submit'])){
 	$idPenjualan = $objPenjualan->add_penjualan($arr_col);
 	if($idPenjualan){
 		echo "<script type='text/javascript'>alert('Data Penjualan Berhasil Ditambahkan');</script>";
-		echo "<script>document.location = 'index.html'</script>";
+		echo "<script>document.location = 'index.php'</script>";
 	}
 	else{
 		echo "<script type='text/javascript'>alert('Data Penjualan Gagal Ditambahkan');</script>";
-		echo "<script>document.location = 'index.html'</script>";
+		echo "<script>document.location = 'index.php'</script>";
 	}
 }
 // header("location: tambah.php");

@@ -1,5 +1,6 @@
 <?php
 require_once("model/user.php");
+session_start();
 if(isset($_POST["btnLogin"])){
 	$objUsers = new user();
 	$rs = $objUsers->
