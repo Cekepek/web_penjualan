@@ -25,7 +25,7 @@ header img {
 .menu-item {
   background-color: #fff;
   /* border: 1px solid #ccc; */
-  padding: 150px;
+  padding: 50px;
   margin: 0 20px;
   cursor: pointer;
   transition: background-color 0.3s ease;
@@ -34,6 +34,7 @@ header img {
   align-items: center;
   box-shadow: 5px 10px #ccc;
   border-radius: 5%;
+  /* width: calc(33.33% - 10px); */
 }
 .menu-item i {
   font-size: 48px;
@@ -42,6 +43,7 @@ header img {
 .menu-item p {
   font-size: 24px;
   margin-bottom: 10px;
+  align-items: center;
 }
 .menu-item:hover {
   background-color: #ddd;
@@ -62,6 +64,12 @@ a {
   height: 90vh;
   flex-direction: column;
 }
+.form-container-stok select{
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
 .form-container {
   display: flex;
   /* justify-content: space-between; */
@@ -75,6 +83,11 @@ a {
 }
 .input-group {
   margin-bottom: 10px;
+}
+.input-barang{
+  align-items: center;
+  
+  justify-content: center;
 }
 label {
   display: block;
@@ -99,6 +112,7 @@ input[type="date"] {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
+
 .button{
   text-align: center;
   /* padding-left: 20px; */
