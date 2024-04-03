@@ -31,7 +31,7 @@ $penjualan = new penjualan();
       </form>
         <table border="1">
             <thead>
-				<tr><th>ID</th> <th>Nama Barang</th> <th>Jumlah Pembelian</th> <th>Tanggal Pembelian</th> <th>Harga Pembelian</th> <th>Tanggal Penjualan</th> <th>Harga Penjualan</th> <th>Sisa Stok</th></tr>
+				<tr><th>ID</th> <th>Nama Barang</th> <th>Harga per Satuan</th> <th>Jumlah Barang</th> <th>Tanggal Penjualan</th> <th>Total Harga</th></tr>
 			</thead>
         <?php
           $tanggal = "";
@@ -44,12 +44,10 @@ $penjualan = new penjualan();
             echo"<tr>";
               echo "<td>".$row['idPenjualan']."</td>";
               echo "<td>".$row['namaBarang']."</td>" ; 	
-              echo "<td>". $row['jumlahBarang']."</td>";
-              echo "<td>". $row['tanggalBeli']."</td>";
-              echo "<td>". $row['hargaBeli']."</td>";
-              echo "<td>". $row['tanggalJual']."</td>";
               echo "<td>". $row['hargaJual']."</td>";
-              echo "<td>". $row['sisaStok']."</td>";
+              echo "<td>". $row['jumlahBarang']."</td>";
+              echo "<td>". $row['tanggalJual']."</td>";
+              echo "<td>". $row['totalHarga']."</td>";
             echo "</tr>";
           }
         ?>

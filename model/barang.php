@@ -17,17 +17,35 @@ class barang extends koneksi
         return $stmt->insert_id;
     }
 
-    public function get_barang()
+    public function get_barang($idBarang)
     {
-        $sql = "Select * From barang";
-        $res = $this->mysqli->query($sql);
-        return $res;
+        if ($idBarang != null) {
+            $sql = "Select * From barang WHERE id=?";
+            $stmt = $this->mysqli->prepare($sql);
+			$stmt->bind_param("i",$idBarang);
+        } else {
+            $sql = "Select * From barang";
+            $stmt = $this->mysqli->prepare($sql);
+        }
+        $stmt->execute();
+		$res = $stmt->get_result();
+		return $res;
     }
 
-    public function update_stok($arr_col){
-        $sql = "UPDATE barang SET hargaBarang=?, hargaJual=?, tanggalRestok=?, stok=stok+? WHERE id=".$arr_col['barang'];
+    public function update_stok($arr_col)
+    {
+        $sql = "UPDATE barang SET hargaBarang=?, hargaJual=?, tanggalRestok=?, stok=stok+? WHERE id=" . $arr_col['barang'];
         $stmt = $this->mysqli->prepare($sql);
         $stmt->bind_param("iisi", $arr_col['hargaBarang'], $arr_col['hargaJual'], $arr_col['tanggalRestok'], $arr_col['stok']);
+        $stmt->execute();
+        $this->mysqli->close();
+        return $stmt->error;
+    }
+
+    public function jual_stok($id, $terjual){
+        $sql = "UPDATE barang SET stok=stok-? WHERE id=" .$id;
+        $stmt = $this->mysqli->prepare($sql);
+        $stmt->bind_param("i", $terjual);
         $stmt->execute();
         $this->mysqli->close();
         return $stmt->error;

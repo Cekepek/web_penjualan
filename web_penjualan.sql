@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 25, 2024 at 08:40 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Apr 03, 2024 at 10:14 AM
+-- Server version: 8.0.29
+-- PHP Version: 8.0.2
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,26 +24,57 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `barang`
+--
+
+CREATE TABLE `barang` (
+  `id` int NOT NULL,
+  `namaBarang` varchar(255) NOT NULL,
+  `hargaBarang` int NOT NULL,
+  `hargaJual` int NOT NULL,
+  `tanggalRestok` date NOT NULL,
+  `stok` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Dumping data for table `barang`
+--
+
+INSERT INTO `barang` (`id`, `namaBarang`, `hargaBarang`, `hargaJual`, `tanggalRestok`, `stok`) VALUES
+(1, 'test', 200, 300, '2024-04-04', 400),
+(2, 'test2', 456, 33, '2024-04-09', 25),
+(3, 'test3', 123, 444, '2024-04-03', 310),
+(4, 'test3', 333, 555, '2024-04-03', 777),
+(5, 'test4', 333, 444, '2024-04-29', 1221),
+(6, 'test5', 555, 666, '2024-04-03', 1443);
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `penjualan`
 --
 
 CREATE TABLE `penjualan` (
-  `idPenjualan` int(11) NOT NULL,
-  `namaBarang` varchar(255) NOT NULL,
-  `jumlahBarang` int(11) NOT NULL,
-  `tanggalBeli` date NOT NULL,
-  `hargaBeli` int(11) NOT NULL,
+  `idPenjualan` int NOT NULL,
+  `idBarang` int NOT NULL,
+  `jumlahBarang` int NOT NULL,
   `tanggalJual` date NOT NULL,
-  `hargaJual` int(11) NOT NULL,
-  `sisaStok` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `totalHarga` int NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `penjualan`
 --
 
-INSERT INTO `penjualan` (`idPenjualan`, `namaBarang`, `jumlahBarang`, `tanggalBeli`, `hargaBeli`, `tanggalJual`, `hargaJual`, `sisaStok`) VALUES
-(1, 'test', 123, '2024-03-11', 100000000, '2024-03-25', 2000000000, 22);
+INSERT INTO `penjualan` (`idPenjualan`, `idBarang`, `jumlahBarang`, `tanggalJual`, `totalHarga`) VALUES
+(2, 2, 121, '2024-04-10', 3993),
+(3, 1, 110, '2024-04-03', 12210),
+(4, 2, 20, '2024-04-03', 660),
+(5, 2, 1, '2024-04-03', 33),
+(6, 2, 25, '2024-04-04', 825),
+(7, 3, 3, '2024-04-05', 1332),
+(8, 3, 10, '2024-04-08', 4440),
+(9, 3, 10, '2024-04-04', 4440);
 
 -- --------------------------------------------------------
 
@@ -52,10 +83,10 @@ INSERT INTO `penjualan` (`idPenjualan`, `namaBarang`, `jumlahBarang`, `tanggalBe
 --
 
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL,
+  `id` int NOT NULL,
   `username` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Dumping data for table `user`
@@ -69,10 +100,17 @@ INSERT INTO `user` (`id`, `username`, `password`) VALUES
 --
 
 --
+-- Indexes for table `barang`
+--
+ALTER TABLE `barang`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  ADD PRIMARY KEY (`idPenjualan`);
+  ADD PRIMARY KEY (`idPenjualan`),
+  ADD KEY `idBarang` (`idBarang`);
 
 --
 -- Indexes for table `user`
@@ -85,16 +123,32 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `barang`
+--
+ALTER TABLE `barang`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
 -- AUTO_INCREMENT for table `penjualan`
 --
 ALTER TABLE `penjualan`
-  MODIFY `idPenjualan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idPenjualan` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `penjualan`
+--
+ALTER TABLE `penjualan`
+  ADD CONSTRAINT `penjualan_ibfk_1` FOREIGN KEY (`idBarang`) REFERENCES `barang` (`id`) ON DELETE RESTRICT ON UPDATE RESTRICT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

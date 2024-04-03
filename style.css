@@ -64,7 +64,7 @@ a {
   height: 90vh;
   flex-direction: column;
 }
-.form-container-stok select{
+select{
   width: 100%;
   padding: 8px;
   border: 1px solid #ccc;

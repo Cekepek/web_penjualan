@@ -1,28 +1,38 @@
 <?php
 require_once("parent.php");
-class penjualan extends koneksi{
-    public function __construct()
-    {
-        parent::__construct();
-    }
+require_once("barang.php");
+class penjualan extends koneksi
+{
+	public function __construct()
+	{
+		parent::__construct();
+	}
 
-    public function add_penjualan($arr_col){
-		$sql = "Insert INTO penjualan (namaBarang, jumlahBarang, tanggalBeli, hargaBeli, tanggalJual, hargaJual, sisaStok) VALUES (?,?,?,?,?,?,?)";
+	public function add_penjualan($arr_col)
+	{
+		$sql = "Insert INTO penjualan (idBarang, jumlahBarang, tanggalJual, totalHarga) VALUES (?,?,?,?)";
 		$stmt = $this->mysqli->prepare($sql);
-		$stmt->bind_param("sisisii", $arr_col['namaBarang'],$arr_col['jumlahBarang'],$arr_col['tanggalBeli'],$arr_col['hargaBeli'],$arr_col['tanggalJual'],$arr_col['hargaJual'],$arr_col['sisaStok']);
+		$stmt->bind_param("iisi", $arr_col['idBarang'], $arr_col['jumlahBarang'], $arr_col['tanggalJual'], $arr_col['hargaJual']);
 		$stmt->execute();
 		$this->mysqli->close();
-		return $stmt->insert_id;
-    }
-
-	public function get_penjualan($tanggal){
-		if($tanggal!=""){
-			$sql = "Select * From penjualan where tanggalJual=?";
-			$stmt = $this->mysqli->prepare($sql);
-			$stmt->bind_param("s",$tanggal);
+		$objBarang = new barang();
+		$error = $objBarang->jual_stok($arr_col['idBarang'], $arr_col['jumlahBarang']);
+		if ($error == true) {
+			echo "<script type='text/javascript'>alert('Stok Barang Gagal Diupdate');</script>";
+			echo "<script>document.location = 'index.php'</script>";
+		} else {
+			return $stmt->insert_id;
 		}
-		else{
-			$sql = "Select * From penjualan";
+	}
+
+	public function get_penjualan($tanggal)
+	{
+		if ($tanggal != "") {
+			$sql = "Select p.idPenjualan, b.namaBarang, b.hargaJual, p.jumlahBarang, p.tanggalJual, p.totalHarga From penjualan as p INNER JOIN barang as b on p.idBarang = b.id where p.tanggalJual=?";
+			$stmt = $this->mysqli->prepare($sql);
+			$stmt->bind_param("s", $tanggal);
+		} else {
+			$sql = "Select p.idPenjualan, b.namaBarang, b.hargaJual, p.jumlahBarang, p.tanggalJual, p.totalHarga From  penjualan as p INNER JOIN barang as b on p.idBarang = b.id ";
 			$stmt = $this->mysqli->prepare($sql);
 		}
 		$stmt->execute();

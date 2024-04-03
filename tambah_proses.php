@@ -4,15 +4,11 @@ require_once("model/penjualan.php");
 
 if(isset($_POST['submit'])){
     $arr_col= array();
-	$arr_col['namaBarang'] = $_POST['namaBarang'];
+	$arr_col['idBarang'] = $_POST['idBarang'];
 	$arr_col['jumlahBarang'] = $_POST['jumlahBarang'];
-	$arr_col['tanggalBeli'] = $_POST['tanggalBeli'];
-	$arr_col['hargaBeli'] = $_POST['hargaBeli'];
 	$arr_col['tanggalJual'] = $_POST['tanggalJual'];
     $arr_col['hargaJual'] = $_POST['hargaJual'];
-	$arr_col['sisaStok'] = $_POST['sisaStok'];
 
-	echo($arr_col['sisaStok']);
     $objPenjualan = new penjualan();
 	$idPenjualan = $objPenjualan->add_penjualan($arr_col);
 	if($idPenjualan){
